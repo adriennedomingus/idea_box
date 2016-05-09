@@ -7,7 +7,7 @@ RSpec.feature "user sees all ideas" do
     i3 = Idea.create(title: "title3", body: "body3")
 
     visit '/'
-save_and_open_page
+
     expect(page).to have_content(i1.title)
     expect(page).to have_content(i1.body)
     expect(page).to have_content(i2.title)
