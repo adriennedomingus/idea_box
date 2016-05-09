@@ -1,7 +1,9 @@
 <h3>New Idea</h3>
+<form id="new-idea-form">
   <%= text_field_tag :title, nil, placeholder: "Title" %>
   <%= text_field_tag :body, nil, placeholder: "Body" %>
   <p class="btn btn-default" id="save">Save</p>
+</form>
 <h3>Ideas</h3>
 <table class="table" id="idea-table">
   <tr id="headings">
@@ -9,7 +11,6 @@
     <th>Body</th>
     <th>Quality</th>
   </tr>
-  <!-- <div id="all-ideas"> -->
     <% @ideas.each do |idea| %>
       <tr>
         <td><%= idea.title %></td>
@@ -17,5 +18,4 @@
         <td><%= idea.quality %></td>
       </tr>
     <% end %>
-  <!-- </div> -->
 </table>

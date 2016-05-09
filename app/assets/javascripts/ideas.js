@@ -12,7 +12,8 @@ $( document ).ready(function() {
       },
       success: function(data) {
         $('#headings').after("<tr><td>" + data["title"] + "</td> <td>" + data["body"] + "</td><td>" + data["quality"] + "</td></tr>");
+        $("#new-idea-form")[0].reset();
       }
-    })
-  })
+    });
+  });
 });
