@@ -10,7 +10,11 @@ class Api::V1::IdeasController < Api::V1::BaseController
   end
 
   def update
-    render json: Idea.update(params[:id], quality: idea_params[:quality].to_i)
+    if idea_params[:quality]
+      render json: Idea.update(params[:id], quality: idea_params[:quality].to_i)
+    else
+      render json: Idea.update(params[:id], idea_params)
+    end
   end
 
   private
