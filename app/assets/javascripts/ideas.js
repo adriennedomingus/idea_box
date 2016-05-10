@@ -39,19 +39,7 @@ $( document ).ready(function() {
     } else if ( currentStatus === "genius") {
       var newStatus = 2
     }
-    $.ajax({
-      type: "PATCH",
-      url: "/api/v1/ideas/" + ideaId,
-      data: {
-        idea: {
-          quality: parseInt(newStatus)
-        }
-      },
-      dataType: "json",
-      success: function(data) {
-        $("#idea-" + data.id).replaceWith(newIdea(data))
-      }
-    });
+    updateStatus(ideaId, newStatus);
   });
 
   $('#idea-table').on('click', '.down', function(){
@@ -64,6 +52,10 @@ $( document ).ready(function() {
     } else if ( currentStatus === "genius") {
       var newStatus = 1
     }
+    updateStatus(ideaId, newStatus);
+  });
+
+  var updateStatus = function(ideaId, newStatus){
     $.ajax({
       type: "PATCH",
       url: "/api/v1/ideas/" + ideaId,
@@ -77,7 +69,7 @@ $( document ).ready(function() {
         $("#idea-" + data.id).replaceWith(newIdea(data))
       }
     });
-  });
+  }
 
   $('#idea-table').on('click', '.title', function() {
     var that = this;
