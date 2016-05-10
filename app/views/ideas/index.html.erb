@@ -12,12 +12,12 @@
 <h3>Ideas</h3>
 <table class="table" id="idea-table">
   <tr id="headings">
-    <th>Title</th>
-    <th>Body</th>
-    <th class="center">Quality</th>
-    <th class="center">Delete</th>
-    <th class="center">Upvote</th>
-    <th class="center">Downvote</th>
+    <th><h4>Title</h4></th>
+    <th><h4>Description</h4></th>
+    <th class="center"><h4>Quality</h4></th>
+    <th class="center"><h4>Delete</h4></th>
+    <th class="center"><h4>Upvote</h4></th>
+    <th class="center"><h4>Downvote</h4></th>
   </tr>
   <% @ideas.each do |idea| %>
     <tr id=<%= "idea-#{idea.id}"%> data-title="<%= idea.body %>" data-body="<%= idea.body %>">
