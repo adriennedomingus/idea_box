@@ -91,6 +91,26 @@ $( document ).ready(function() {
     })
   })
 
+  // var getIdeas = function(){
+  //   $.getJSON('/api/v1/ideas', function(data) {
+  //     var ideas = data
+  //   })
+  //   debugger
+  // }
+
+  $('#search-form').on('keyup', function(){
+    currentSearch = this.search.value;
+    $.getJSON('/api/v1/ideas', function(data) {
+      $.each(data, function(key, idea) {
+        if (idea.title.match(currentSearch) || idea.body.match(currentSearch)) {
+          document.getElementById('idea-' + idea.id).style.display = "table-row"
+        } else {
+          document.getElementById('idea-' + idea.id).style.display = "none"
+        }
+      })
+    })
+  });
+
   var changeStatus = function(that, updatedInfo) {
     $.ajax({
       type: "PATCH",
@@ -109,6 +129,6 @@ $( document ).ready(function() {
   }
 
   var newIdea = function(data) {
-    return "<tr id='idea-" + data["id"] + "'><td class='title'>" + data["title"] + "</td> <td class='body'>" + data["body"] + "</td><td class='quality'>" + data["quality"] + "</td><td id='" + data["id"] + "' class='btn btn-default delete'>delete</td><td id='up-" + data.id + "' class='btn btn-default up'>thumbs up</td><td id='down-" + data.id + "' class='btn btn-default down'>thumbs down</td></tr>"
+    return "<tr id='idea-" + data["id"] + "' data-title='" + data["title"] + "' data-body='" + data["body"] + "'><td class='title'>" + data["title"] + "</td> <td class='body'>" + data["body"] + "</td><td class='quality'>" + data["quality"] + "</td><td id='" + data["id"] + "' class='btn btn-default delete'>delete</td><td id='up-" + data.id + "' class='btn btn-default up'>thumbs up</td><td id='down-" + data.id + "' class='btn btn-default down'>thumbs down</td></tr>"
   }
 });

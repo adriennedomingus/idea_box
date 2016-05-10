@@ -1,6 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::IdeasController, type: :controller do
+  scenario "ideas#index" do
+    Idea.create(title: "title1", body: "body1")
+    Idea.create(title: "title2", body: "body2")
+    Idea.create(title: "title3", body: "body3")
+
+    get :index
+
+    ideas = JSON.parse(response.body)
+
+    expect(ideas.count).to eq(3)
+  end
+
   scenario "idea#create" do
     expect(Idea.count).to eq(0)
 

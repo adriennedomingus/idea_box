@@ -20,7 +20,7 @@
     <th></th>
   </tr>
     <% @ideas.each do |idea| %>
-      <tr id=<%= "idea-#{idea.id}" %>>
+      <tr id=<%= "idea-#{idea.id}"%> data-title="<%= idea.body %>" data-body="<%= idea.body %>">
         <td class="title"><%= idea.title %></td>
         <td class="body"><%= idea.body %></td>
         <td class="quality"><%= idea.quality %></td>
