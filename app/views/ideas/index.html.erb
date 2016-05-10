@@ -1,12 +1,12 @@
 <h3>Search Your Ideas</h3>
 <form id="search-form">
-  <%= text_field_tag :search, nil, placeholder: "Search" %>
+  <%= text_field_tag :search, nil, placeholder: "Search", class: 'form-control' %>
 </form>
 
 <h3>New Idea</h3>
-<form id="new-idea-form">
-  <%= text_field_tag :title, nil, placeholder: "Title" %>
-  <%= text_field_tag :body, nil, placeholder: "Body" %>
+<form id="new-idea-form" class="form-inline">
+  <%= text_field_tag :title, nil, placeholder: "Title", class: 'form-control' %>
+  <%= text_field_tag :body, nil, placeholder: "Body", class: 'form-control' %>
   <p class="btn btn-default" id="save">Save</p>
 </form>
 <h3>Ideas</h3>
@@ -14,19 +14,19 @@
   <tr id="headings">
     <th>Title</th>
     <th>Body</th>
-    <th>Quality</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th class="center">Quality</th>
+    <th class="center">Delete</th>
+    <th class="center">Upvote</th>
+    <th class="center">Downvote</th>
   </tr>
-    <% @ideas.each do |idea| %>
-      <tr id=<%= "idea-#{idea.id}"%> data-title="<%= idea.body %>" data-body="<%= idea.body %>">
-        <td class="title"><%= idea.title %></td>
-        <td class="body"><%= idea.body.truncate(80, separator: /\s/) %></td>
-        <td class="quality"><%= idea.quality %></td>
-        <td id=<%= "#{idea.id}" %> class="btn btn-default delete">delete</td>
-        <td id=<%= "up-#{idea.id}" %> class="btn btn-default up">thumbs up</td>
-        <td id=<%= "down-#{idea.id}" %> class="btn btn-default down">thumbs down</td>
-      </tr>
-    <% end %>
+  <% @ideas.each do |idea| %>
+    <tr id=<%= "idea-#{idea.id}"%> data-title="<%= idea.body %>" data-body="<%= idea.body %>">
+      <td class="title"><%= idea.title %></td>
+      <td class="body"><%= idea.body.truncate(80, separator: /\s/) %></td>
+      <td class="quality center"><%= idea.quality %></td>
+      <td class="delete center" id=<%= "#{idea.id}" %>> <%= image_tag("delete.png") %></td>
+      <td class="up center" id=<%= "up-#{idea.id}" %>> <%= image_tag("up.png") %></td>
+      <td class="down center" id=<%= "down-#{idea.id}" %>> <%= image_tag("down.png") %></td>
+    </tr>
+  <% end %>
 </table>

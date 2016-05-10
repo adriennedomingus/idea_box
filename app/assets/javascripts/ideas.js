@@ -127,7 +127,6 @@ $( document ).ready(function() {
     if (trimmedBody != body) {
       var trimmedBody = trimmedBody + "..."
     }
-    return "<tr id='idea-" + data["id"] + "' data-title='" + data["title"] + "' data-body='" + trimmedBody + "'><td class='title'>" + data["title"] + "</td> <td class='body'>" + trimmedBody + "</td><td class='quality'>" + data["quality"] + "</td><td id='" + data["id"] + "' class='btn btn-default delete'>delete</td><td id='up-" + data.id + "' class='btn btn-default up'>thumbs up</td><td id='down-" + data.id + "' class='btn btn-default down'>thumbs down</td></tr>"
-
+    return "<tr id='idea-" + data["id"] + "' data-title='" + data["title"] + "' data-body='" + trimmedBody + "'><td class='title'>" + data["title"] + "</td> <td class='body'>" + trimmedBody + "</td><td class='center quality'>" + data["quality"] + "</td><td id='" + data["id"] + "' class='center delete'><img src='assets/delete.png'></td><td id='up-" + data.id + "' class='center up'><img src='assets/up.png'></td><td id='down-" + data.id + "' class='center down'><img src='assets/down.png'></td></tr>"
   }
 });

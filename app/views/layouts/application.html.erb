@@ -2,12 +2,14 @@
 <html>
 <head>
   <title>IdeaBox</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <link rel="stylesheet" type="text/css"  href="https://fonts.googleapis.com/css?family=Raleway">
   <%= csrf_meta_tags %>
 </head>
 <body>
 <div class="container">
+  <h1 class="center">Idea Box</h1>
   <%= yield %>
 </div>
 
