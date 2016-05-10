@@ -11,7 +11,7 @@ $( document ).ready(function() {
         }
       },
       success: function(data) {
-        $('#headings').after("<tr id='idea-" + data["id"] + "'><td>" + data["title"] + "</td> <td>" + data["body"] + "</td><td class='quality'>" + data["quality"] + "</td><td id='" + data["id"] + "' class='btn btn-default delete'>delete</td><td id='up-" + data.id + "' class='btn btn-default up'>thumbs up</td><td id='down-" + data.id + "' class='btn btn-default down'>thumbs down</td></tr>");
+        $('#headings').after("<tr id='idea-" + data["id"] + "'><td class='title'>" + data["title"] + "</td> <td class='body'>" + data["body"] + "</td><td class='quality'>" + data["quality"] + "</td><td id='" + data["id"] + "' class='btn btn-default delete'>delete</td><td id='up-" + data.id + "' class='btn btn-default up'>thumbs up</td><td id='down-" + data.id + "' class='btn btn-default down'>thumbs down</td></tr>");
         $("#new-idea-form")[0].reset();
       }
     });
@@ -49,7 +49,7 @@ $( document ).ready(function() {
       },
       dataType: "json",
       success: function(data) {
-        $("#idea-" + data.id).replaceWith("<tr id='idea-" + data["id"] + "'><td>" + data["title"] + "</td> <td>" + data["body"] + "</td><td class='quality'>" + data["quality"] + "</td><td id='" + data["id"] + "' class='btn btn-default delete'>delete</td><td id='up-" + data.id + "' class='btn btn-default up'>thumbs up</td><td id='down-" + data.id + "' class='btn btn-default down'>thumbs down</td></tr>")
+        $("#idea-" + data.id).replaceWith("<tr id='idea-" + data["id"] + "'><td class='title'>" + data["title"] + "</td> <td class='body'>" + data["body"] + "</td><td class='quality'>" + data["quality"] + "</td><td id='" + data["id"] + "' class='btn btn-default delete'>delete</td><td id='up-" + data.id + "' class='btn btn-default up'>thumbs up</td><td id='down-" + data.id + "' class='btn btn-default down'>thumbs down</td></tr>")
       }
     });
   });
@@ -74,8 +74,16 @@ $( document ).ready(function() {
       },
       dataType: "json",
       success: function(data) {
-        $("#idea-" + data.id).replaceWith("<tr id='idea-" + data["id"] + "'><td>" + data["title"] + "</td> <td>" + data["body"] + "</td><td class='quality'>" + data["quality"] + "</td><td id='" + data["id"] + "' class='btn btn-default delete'>delete</td><td id='up-" + data.id + "' class='btn btn-default up'>thumbs up</td><td id='down-" + data.id + "' class='btn btn-default down'>thumbs down</td></tr>")
+        $("#idea-" + data.id).replaceWith("<tr id='idea-" + data["id"] + "'><td class='title'>" + data["title"] + "</td> <td class='body'>" + data["body"] + "</td><td class='quality'>" + data["quality"] + "</td><td id='" + data["id"] + "' class='btn btn-default delete'>delete</td><td id='up-" + data.id + "' class='btn btn-default up'>thumbs up</td><td id='down-" + data.id + "' class='btn btn-default down'>thumbs down</td></tr>")
       }
     });
   });
+
+  $('#idea-table').on('click', '.title', function(){
+    $(this).attr('contentEditable', 'true')
+  })
+
+  $('#idea-table').on('click', '.body', function(){
+    $(this).attr('contentEditable', 'true')
+  })
 });

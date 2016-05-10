@@ -16,8 +16,8 @@
   </tr>
     <% @ideas.each do |idea| %>
       <tr id=<%= "idea-#{idea.id}" %>>
-        <td><%= idea.title %></td>
-        <td><%= idea.body %></td>
+        <td class="title"><%= idea.title %></td>
+        <td class="body"><%= idea.body %></td>
         <td class="quality"><%= idea.quality %></td>
         <td id=<%= "#{idea.id}" %> class="btn btn-default delete">delete</td>
         <td id=<%= "up-#{idea.id}" %> class="btn btn-default up">thumbs up</td>
