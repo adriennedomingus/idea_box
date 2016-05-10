@@ -12,6 +12,7 @@
     <th>Quality</th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
     <% @ideas.each do |idea| %>
       <tr id=<%= "idea-#{idea.id}" %>>
@@ -20,6 +21,7 @@
         <td class="quality"><%= idea.quality %></td>
         <td id=<%= "#{idea.id}" %> class="btn btn-default delete">delete</td>
         <td id=<%= "up-#{idea.id}" %> class="btn btn-default up">thumbs up</td>
+        <td id=<%= "down-#{idea.id}" %> class="btn btn-default down">thumbs down</td>
       </tr>
     <% end %>
 </table>

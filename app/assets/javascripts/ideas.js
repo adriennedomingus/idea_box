@@ -11,7 +11,7 @@ $( document ).ready(function() {
         }
       },
       success: function(data) {
-        $('#headings').after("<tr id='idea-" + data["id"] + "'><td>" + data["title"] + "</td> <td>" + data["body"] + "</td><td class='quality'>" + data["quality"] + "</td><td id='" + data["id"] + "' class='btn btn-default delete'>delete</td><td id='up-" + data.id + "' class='btn btn-default up'>thumbs up</td></tr>");
+        $('#headings').after("<tr id='idea-" + data["id"] + "'><td>" + data["title"] + "</td> <td>" + data["body"] + "</td><td class='quality'>" + data["quality"] + "</td><td id='" + data["id"] + "' class='btn btn-default delete'>delete</td><td id='up-" + data.id + "' class='btn btn-default up'>thumbs up</td><td id='down-" + data.id + "' class='btn btn-default down'>thumbs down</td></tr>");
         $("#new-idea-form")[0].reset();
       }
     });
@@ -49,7 +49,32 @@ $( document ).ready(function() {
       },
       dataType: "json",
       success: function(data) {
-        $("#idea-" + data.id).replaceWith("<tr id='idea-" + data["id"] + "'><td>" + data["title"] + "</td> <td>" + data["body"] + "</td><td class='quality'>" + data["quality"] + "</td><td id='" + data["id"] + "' class='btn btn-default delete'>delete</td><td id='up-" + data.id + "' class='btn btn-default up'>thumbs up</td></tr>")
+        $("#idea-" + data.id).replaceWith("<tr id='idea-" + data["id"] + "'><td>" + data["title"] + "</td> <td>" + data["body"] + "</td><td class='quality'>" + data["quality"] + "</td><td id='" + data["id"] + "' class='btn btn-default delete'>delete</td><td id='up-" + data.id + "' class='btn btn-default up'>thumbs up</td><td id='down-" + data.id + "' class='btn btn-default down'>thumbs down</td></tr>")
+      }
+    });
+  });
+
+  $('#idea-table').on('click', '.down', function(){
+    var ideaId = parseInt(this.id.split('-')[1])
+    var currentStatus = $(this.closest('tr').children[2]).text()
+    if (currentStatus === "swill") {
+      var newStatus = 0
+    } else if ( currentStatus === "plausible") {
+      var newStatus = 0
+    } else if ( currentStatus === "genius") {
+      var newStatus = 1
+    }
+    $.ajax({
+      type: "PATCH",
+      url: "/api/v1/ideas/" + ideaId,
+      data: {
+        idea: {
+          quality: parseInt(newStatus)
+        }
+      },
+      dataType: "json",
+      success: function(data) {
+        $("#idea-" + data.id).replaceWith("<tr id='idea-" + data["id"] + "'><td>" + data["title"] + "</td> <td>" + data["body"] + "</td><td class='quality'>" + data["quality"] + "</td><td id='" + data["id"] + "' class='btn btn-default delete'>delete</td><td id='up-" + data.id + "' class='btn btn-default up'>thumbs up</td><td id='down-" + data.id + "' class='btn btn-default down'>thumbs down</td></tr>")
       }
     });
   });
