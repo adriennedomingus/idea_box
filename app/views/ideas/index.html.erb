@@ -11,13 +11,15 @@
     <th>Body</th>
     <th>Quality</th>
     <th></th>
+    <th></th>
   </tr>
     <% @ideas.each do |idea| %>
       <tr id=<%= "idea-#{idea.id}" %>>
         <td><%= idea.title %></td>
         <td><%= idea.body %></td>
-        <td><%= idea.quality %></td>
+        <td class="quality"><%= idea.quality %></td>
         <td id=<%= "#{idea.id}" %> class="btn btn-default delete">delete</td>
+        <td id=<%= "up-#{idea.id}" %> class="btn btn-default up">thumbs up</td>
       </tr>
     <% end %>
 </table>
