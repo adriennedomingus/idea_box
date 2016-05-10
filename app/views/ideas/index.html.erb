@@ -22,7 +22,7 @@
     <% @ideas.each do |idea| %>
       <tr id=<%= "idea-#{idea.id}"%> data-title="<%= idea.body %>" data-body="<%= idea.body %>">
         <td class="title"><%= idea.title %></td>
-        <td class="body"><%= idea.body %></td>
+        <td class="body"><%= idea.body.truncate(80, separator: /\s/) %></td>
         <td class="quality"><%= idea.quality %></td>
         <td id=<%= "#{idea.id}" %> class="btn btn-default delete">delete</td>
         <td id=<%= "up-#{idea.id}" %> class="btn btn-default up">thumbs up</td>

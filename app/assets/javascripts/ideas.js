@@ -91,13 +91,6 @@ $( document ).ready(function() {
     })
   })
 
-  // var getIdeas = function(){
-  //   $.getJSON('/api/v1/ideas', function(data) {
-  //     var ideas = data
-  //   })
-  //   debugger
-  // }
-
   $('#search-form').on('keyup', function(){
     currentSearch = this.search.value;
     $.getJSON('/api/v1/ideas', function(data) {
@@ -129,6 +122,12 @@ $( document ).ready(function() {
   }
 
   var newIdea = function(data) {
-    return "<tr id='idea-" + data["id"] + "' data-title='" + data["title"] + "' data-body='" + data["body"] + "'><td class='title'>" + data["title"] + "</td> <td class='body'>" + data["body"] + "</td><td class='quality'>" + data["quality"] + "</td><td id='" + data["id"] + "' class='btn btn-default delete'>delete</td><td id='up-" + data.id + "' class='btn btn-default up'>thumbs up</td><td id='down-" + data.id + "' class='btn btn-default down'>thumbs down</td></tr>"
+    body = data["body"]
+    var trimmedBody = body.replace(/^(.{80}[^\s]*).*/, "$1");
+    if (trimmedBody != body) {
+      var trimmedBody = trimmedBody + "..."
+    }
+    return "<tr id='idea-" + data["id"] + "' data-title='" + data["title"] + "' data-body='" + trimmedBody + "'><td class='title'>" + data["title"] + "</td> <td class='body'>" + trimmedBody + "</td><td class='quality'>" + data["quality"] + "</td><td id='" + data["id"] + "' class='btn btn-default delete'>delete</td><td id='up-" + data.id + "' class='btn btn-default up'>thumbs up</td><td id='down-" + data.id + "' class='btn btn-default down'>thumbs down</td></tr>"
+
   }
 });
