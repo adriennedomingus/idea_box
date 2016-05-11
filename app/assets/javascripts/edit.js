@@ -4,7 +4,7 @@ function editTitle() {
     $(that).attr('contentEditable', 'true')
     $(that).on('blur keydown', function(event) {
       if (event.type === "blur" || event.keyCode === 13) {
-        changeStatus(that, {title: $(this).closest('.title').text()})
+        changeContent(that, {title: $(this).closest('.title').text()})
       }
     })
   })
@@ -16,8 +16,25 @@ function editBody() {
     $(that).attr('contentEditable', 'true')
     $(that).on('blur keydown', function(event) {
       if (event.type === "blur" || event.keyCode === 13) {
-        changeStatus(that, {body: $(this).closest('.body').text()})
+        changeContent(that, {body: $(this).closest('.body').text()})
       }
     })
   })
+}
+
+function changeContent(that, updatedInfo) {
+  $.ajax({
+    type: "PATCH",
+    url: "/api/v1/ideas/" + $(that).parent()[0].id.split('-')[1],
+    data: {
+      idea: {
+        title: updatedInfo.title,
+        body: updatedInfo.body
+      }
+    },
+    dataType: "json",
+    success: function(data) {
+      $("#idea-" + data.id).replaceWith(newIdea(data))
+    }
+  });
 }

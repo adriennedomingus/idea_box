@@ -51,20 +51,3 @@ function updateStatus(ideaId, newStatus){
     }
   });
 }
-
-function changeStatus(that, updatedInfo) {
-  $.ajax({
-    type: "PATCH",
-    url: "/api/v1/ideas/" + $(that).parent()[0].id.split('-')[1],
-    data: {
-      idea: {
-        title: updatedInfo.title,
-        body: updatedInfo.body
-      }
-    },
-    dataType: "json",
-    success: function(data) {
-      $("#idea-" + data.id).replaceWith(newIdea(data))
-    }
-  });
-}

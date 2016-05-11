@@ -11,9 +11,17 @@ function create() {
         }
       },
       success: function(data) {
-        $('#headings').after(newIdea(data));
-        $("#new-idea-form")[0].reset();
+        prependIdea(data)
+        clearForm()
       }
     });
   });
+}
+
+function prependIdea(data) {
+  $('#headings').after(newIdea(data));
+}
+
+function clearForm() {
+  $("#new-idea-form")[0].reset();
 }

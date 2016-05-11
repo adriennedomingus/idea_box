@@ -6,8 +6,12 @@ function deleteIdea() {
       url: "/api/v1/ideas/" + ideaId,
       dataType: "json",
       success: function(data) {
-        $("#idea-" + ideaId).remove()
+        removeIdea(ideaId)
       }
     });
   });
+}
+
+function removeIdea(ideaId) {
+  $("#idea-" + ideaId).remove()
 }
