@@ -814,6 +814,14 @@
       "/Users/adrienne/Turing/4mod/idea_box/app/models/idea.rb": [
         1,
         1,
+        null,
+        1,
+        9,
+        null,
+        null,
+        1,
+        16,
+        null,
         null
       ],
       "/Users/adrienne/Turing/4mod/idea_box/app/controllers/ideas_controller.rb": [
@@ -824,6 +832,6 @@
         null
       ]
     },
-    "timestamp": 1462986633
+    "timestamp": 1462987506
   }
 }

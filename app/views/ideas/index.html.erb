@@ -28,7 +28,7 @@
   <% @ideas.each do |idea| %>
     <tr id=<%= "idea-#{idea.id}"%> data-title="<%= idea.body %>" data-body="<%= idea.body %>">
       <td class="title"><%= idea.title %></td>
-      <td class="body"><%= idea.body.truncate(80, separator: /\s/) %></td>
+      <td class="body"><%= idea.truncated_body %></td>
       <td class="quality center"><%= idea.quality %></td>
       <td class="delete center" id=<%= "#{idea.id}" %>> <%= image_tag("delete.png") %></td>
       <td class="up center" id=<%= "up-#{idea.id}" %>> <%= image_tag("up.png") %></td>
