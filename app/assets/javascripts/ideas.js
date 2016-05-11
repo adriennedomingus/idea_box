@@ -6,11 +6,12 @@ $( document ).ready(function() {
   editBody();
   deleteIdea();
   create();
-  filter()
+  filter();
 });
 
 function newIdea(data) {
-  var trimmedBody = truncateBody(data)
+  var body = data["body"]
+  var trimmedBody = truncateBody(body)
   return "<tr id='idea-" + data["id"] +
          "' data-title='" + data["title"] + "' data-body='" + trimmedBody +
          "'><td class='title'>" + data["title"] +
@@ -21,8 +22,7 @@ function newIdea(data) {
          data.id + "' class='center down'><img src='assets/down.png'></td></tr>"
 }
 
-function truncateBody(data) {
-  body = data["body"]
+function truncateBody(body) {
   var trimmedBody = body.replace(/^(.{80}[^\s]*).*/, "$1");
   if (trimmedBody != body) {
     var trimmedBody = trimmedBody + "..."
