@@ -2,14 +2,21 @@
 <form id="search-form">
   <%= text_field_tag :search, nil, placeholder: "Search", class: 'form-control' %>
 </form>
-
 <h3>New Idea</h3>
 <form id="new-idea-form" class="form-inline">
   <%= text_field_tag :title, nil, placeholder: "Title", class: 'form-control' %>
   <%= text_field_tag :body, nil, placeholder: "Description", class: 'form-control' %>
   <p class="btn btn-default" id="save">Save</p>
 </form>
-<h3>Ideas</h3>
+  <h3>Ideas</h3>
+  <!-- <p class="filter-button col-md-1">Filter</p> -->
+<div class="filter-ideas row">
+  <p class="col-md-2 filter-button" id="all">ALL</p>
+  <p class="col-md-2 col-md-offset-1 filter-button" id="swill">SWILL</p>
+  <p class="col-md-2 col-md-offset-1 filter-button" id="plausible">PLAUSIBLE</p>
+  <p class="col-md-2 col-md-offset-1 filter-button" id="genius">GENIUS</p>
+</div>
+<br>
 <table class="table" id="idea-table">
   <tr id="headings">
     <th><h4>Title</h4></th>

@@ -6,6 +6,7 @@ $( document ).ready(function() {
   editBody();
   deleteIdea();
   create();
+  filter()
 });
 
 function newIdea(data) {
