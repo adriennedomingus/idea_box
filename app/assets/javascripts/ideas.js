@@ -12,14 +12,86 @@ $( document ).ready(function() {
 function newIdea(data) {
   var body = data["body"]
   var trimmedBody = truncateBody(body)
-  return "<tr id='idea-" + data["id"] +
-         "' data-title='" + data["title"] + "' data-body='" + trimmedBody +
-         "'><td class='title'>" + data["title"] +
-         "</td> <td class='body'>" + trimmedBody +
-         "</td><td class='center quality'>" + data["quality"] +
-         "</td><td id='" + data["id"] + "' class='center delete'><img src='assets/delete.png'></td><td id='up-" +
-         data.id + "' class='center up'><img src='assets/up.png'></td><td id='down-" +
-         data.id + "' class='center down'><img src='assets/down.png'></td></tr>"
+  var newTr = createTr(data);
+  newTr.appendChild(createTitleTd(data))
+  newTr.appendChild(createBodyTd(data, trimmedBody))
+  newTr.appendChild(createQualityTd(data))
+  newTr.appendChild(createDeleteTd(data))
+  newTr.appendChild(createUpTd(data))
+  newTr.appendChild(createDownTd(data))
+  return newTr
+}
+
+function upImage() {
+  var upImage = document.createElement('img')
+  upImage.src = 'assets/up.png'
+  return upImage
+}
+
+function downImage() {
+  var downImage = document.createElement('img')
+  downImage.src = 'assets/down.png'
+  return downImage
+}
+
+
+function deleteImage() {
+  var deleteImage = document.createElement('img')
+  deleteImage.src = 'assets/delete.png'
+  return deleteImage
+}
+
+function createTr(data) {
+  var newTr = document.createElement('tr')
+  newTr.id = "idea-" + data["id"]
+  newTr.setAttribute('data-title', data["title"])
+  newTr.setAttribute('data-body', data["body"])
+  return newTr
+}
+
+function createTitleTd(data) {
+  var titleTd = document.createElement('td')
+  titleTd.className = 'title'
+  titleTd.innerHTML = data["title"]
+  return titleTd
+}
+
+function createBodyTd(data, trimmedBody) {
+  var bodyTd = document.createElement('td')
+  bodyTd.className = 'body'
+  bodyTd.innerHTML = trimmedBody
+  return bodyTd
+}
+
+function createQualityTd(data) {
+  var qualityTd = document.createElement('td')
+  qualityTd.className = 'center quality'
+  qualityTd.innerHTML = data["quality"]
+  return qualityTd
+}
+
+function createDeleteTd(data) {
+  var deleteTd = document.createElement('td')
+  deleteTd.id = data["id"]
+  deleteTd.className = 'center delete'
+  deleteTd.appendChild(deleteImage())
+  return deleteTd
+}
+
+function createUpTd(data) {
+  var upTd = document.createElement('td')
+  upTd.id = "up-" + data["id"]
+  upTd.className = 'center up'
+  upTd.appendChild(upImage())
+  return upTd
+}
+
+function createDownTd(data) {
+  var downTd = document.createElement('td')
+  downTd.id = "down-" + data["id"]
+  downTd.className = 'center down'
+  downTd.appendChild(downImage())
+  return downTd
 }
 
 function truncateBody(body) {
