@@ -11,8 +11,8 @@ function create() {
         }
       },
       success: function(data) {
-        prependIdea(data)
-        clearForm()
+        prependIdea(data);
+        clearForm();
       }
     });
   });

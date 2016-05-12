@@ -1,25 +1,25 @@
 function editTitle() {
   $('#idea-table').on('click', '.title', function() {
     var that = this;
-    $(that).attr('contentEditable', 'true')
+    $(that).attr('contentEditable', 'true');
     $(that).on('blur keydown', function(event) {
       if (event.type === "blur" || event.keyCode === 13) {
-        changeContent(that, {title: $(this).closest('.title').text()})
+        changeContent(that, {title: $(this).closest('.title').text()});
       }
-    })
-  })
+    });
+  });
 }
 
 function editBody() {
   $('#idea-table').on('click', '.body', function(){
     var that = this;
-    $(that).attr('contentEditable', 'true')
+    $(that).attr('contentEditable', 'true');
     $(that).on('blur keydown', function(event) {
       if (event.type === "blur" || event.keyCode === 13) {
-        changeContent(that, {body: $(this).closest('.body').text()})
+        changeContent(that, {body: $(this).closest('.body').text()});
       }
-    })
-  })
+    });
+  });
 }
 
 function changeContent(that, updatedInfo) {
@@ -34,7 +34,7 @@ function changeContent(that, updatedInfo) {
     },
     dataType: "json",
     success: function(data) {
-      $("#idea-" + data.id).replaceWith(newIdea(data))
+      $("#idea-" + data.id).replaceWith(newIdea(data));
     }
   });
 }
