@@ -14,18 +14,18 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-06-20T09:24:13-07:00">2016-06-20T09:24:13-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-06-20T09:36:29-07:00">2016-06-20T09:36:29-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">100.0%</span></span>
+    (<span class="covered_percent"><span class="green">99.69%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         3.12
+         3.27
        </span>
     </span> hits/line)
   </h2>
@@ -33,8 +33,8 @@
   <div>
     <b>31</b> files in total.
     <b>324</b> relevant lines. 
-    <span class="green"><b>324</b> lines covered</span> and
-    <span class="red"><b>0</b> lines missed </span>
+    <span class="green"><b>323</b> lines covered</span> and
+    <span class="red"><b>1</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -67,7 +67,7 @@
         <td>15</td>
         <td>15</td>
         <td>0</td>
-        <td>3.9</td>
+        <td>4.5</td>
       </tr>
       
       <tr>
@@ -102,12 +102,12 @@
       
       <tr>
         <td class="strong"><a href="#bc79121b34d78f342037182655927fec0833087a" class="src_link" title="app/models/idea.rb">app/models/idea.rb</a></td>
-        <td class="green strong">100.0 %</td>
+        <td class="yellow strong">83.33 %</td>
         <td>11</td>
         <td>6</td>
-        <td>6</td>
-        <td>0</td>
-        <td>4.8</td>
+        <td>5</td>
+        <td>1</td>
+        <td>2.2</td>
       </tr>
       
       <tr>
@@ -313,7 +313,7 @@
       <tr>
         <td class="strong"><a href="#b1b0c0233f58f829c8234ff10a89293719baf7b3" class="src_link" title="spec/features/user_sees_all_ideas_spec.rb">spec/features/user_sees_all_ideas_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>19</td>
+        <td>18</td>
         <td>14</td>
         <td>14</td>
         <td>0</td>
@@ -347,7 +347,7 @@
         <td>35</td>
         <td>35</td>
         <td>0</td>
-        <td>18.5</td>
+        <td>20.1</td>
       </tr>
       
       <tr>
@@ -450,8 +450,8 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="5">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="14" data-linenumber="5">
+          <span class="hits">14</span>
           
           <code class="ruby">    render json: Idea.all</code>
         </li>
@@ -727,11 +727,11 @@
         <div class="source_table" id="bc79121b34d78f342037182655927fec0833087a">
   <div class="header">
     <h3>app/models/idea.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="yellow">83.33 %</span> covered</h4>
     <div>
       <b>6</b> relevant lines. 
-      <span class="green"><b>6</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <span class="green"><b>5</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
     </div>
   </div>
   
@@ -786,8 +786,8 @@
           <code class="ruby">  def truncated_body</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="9">
-          <span class="hits">16</span>
+        <li class="missed" data-hits="0" data-linenumber="9">
+          
           
           <code class="ruby">    body.truncate(80, separator: /\s/)</code>
         </li>
@@ -3705,7 +3705,7 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">  scenario &quot;user sees all ideas&quot; do</code>
+          <code class="ruby">  scenario &quot;user sees all ideas&quot;, js: true do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="5">
@@ -3738,61 +3738,55 @@
           <code class="ruby">    visit &#39;/&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="10">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="11">
+        <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
           <code class="ruby">    expect(page).to have_content(i1.title)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="12">
+        <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
           <code class="ruby">    expect(page).to have_content(i1.body)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="13">
+        <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
           <code class="ruby">    expect(page).to have_content(i2.title)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="14">
+        <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
           <code class="ruby">    expect(page).to have_content(i2.body)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="15">
+        <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
           <code class="ruby">    expect(page).to have_content(i3.title)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
           <code class="ruby">    expect(page).to have_content(i3.body)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
           <code class="ruby">    expect(page).to have_content(&quot;swill&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby">end</code>
@@ -4272,26 +4266,26 @@
           <code class="ruby">  config.around(:each, js: true) do |example|</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="34">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="9" data-linenumber="34">
+          <span class="hits">9</span>
           
           <code class="ruby">    DatabaseCleaner.strategy = :truncation</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="35">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="9" data-linenumber="35">
+          <span class="hits">9</span>
           
           <code class="ruby">    ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="36">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="9" data-linenumber="36">
+          <span class="hits">9</span>
           
           <code class="ruby">    example.run</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="37">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="9" data-linenumber="37">
+          <span class="hits">9</span>
           
           <code class="ruby">    ActiveRecord::Base.shared_connection = nil</code>
         </li>
@@ -4386,8 +4380,8 @@
           <code class="ruby">  def self.connection</code>
         </li>
       
-        <li class="covered" data-hits="542" data-linenumber="53">
-          <span class="hits">542</span>
+        <li class="covered" data-hits="597" data-linenumber="53">
+          <span class="hits">597</span>
           
           <code class="ruby">    @@shared_connection || retrieve_connection</code>
         </li>
